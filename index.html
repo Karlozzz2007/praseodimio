@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Praseodimio (Pr): el gemelo verde</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;800&family=Newsreader:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#e9f1e3;--bg2:#d9e7d0;--tx:#12281d;--mut:#4b6355;--ac:#1e7a4f;--hl:#d9c23f;--bd:#aac4a3;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10211a;--bg2:#183026;--tx:#e4efe0;--mut:#9db5a6;--ac:#7fd19c;--hl:#e3cf55;--bd:#2f4d3e;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#10211a;--bg2:#183026;--tx:#e4efe0;--mut:#9db5a6;--ac:#7fd19c;--hl:#e3cf55;--bd:#2f4d3e;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--tx);font:18px/1.65 Newsreader,Georgia,serif}
+h1,h2,h3,button,.big{font-family:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif}
+.w{max-width:1040px;margin:0 auto;padding:0 20px}
+section{padding:56px 0}
+h2{font-size:clamp(1.7rem,4vw,2.4rem);line-height:1.1;margin:0 0 8px;font-weight:800}
+.sub{color:var(--mut);margin:0 0 28px;max-width:56ch}
+button{font-size:.95rem;cursor:pointer;color:var(--tx);background:transparent;border:1.5px solid var(--bd);border-radius:999px;padding:8px 16px}
+button:hover{border-color:var(--ac)}
+button[aria-pressed="true"],button[aria-selected="true"]{background:var(--ac);border-color:var(--ac);color:var(--bg)}
+:focus-visible{outline:3px solid var(--hl);outline-offset:2px}
+.top{display:flex;justify-content:flex-end;padding-top:14px}
+.hero{display:grid;gap:28px;align-items:center;padding:24px 0 40px}
+@media(min-width:780px){.hero{grid-template-columns:1.05fr 1fr}}
+h1{font-size:clamp(3rem,11vw,6.2rem);line-height:.95;margin:0 0 18px;font-weight:800;letter-spacing:-.03em}
+.lede{font-size:1.2rem;max-width:34ch;margin:0 0 18px}
+.tag{display:inline-block;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;background:var(--hl);color:#12281d;padding:2px 12px;border-radius:6px;margin-bottom:14px}
+#atom{width:100%;max-width:440px;margin:0 auto;display:block}
+.sh .ring{fill:none;stroke:var(--bd);stroke-width:1}
+.sh .el{fill:var(--mut)}
+.sh.on .ring{stroke:var(--ac);stroke-width:2.2}
+.sh.on .el{fill:var(--ac)}
+.hit{fill:none;stroke:transparent;stroke-width:16;pointer-events:stroke;cursor:pointer}
+.orb{transform-origin:150px 150px;animation:spin linear infinite;pointer-events:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+#shells{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 10px}
+#info{min-height:5.2em;margin:0;max-width:46ch}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:28px 24px;margin:0}
+.facts div{border-top:3px solid var(--ac);padding-top:10px}
+.facts dt{color:var(--mut);font-size:.95rem}
+.facts dd{margin:0}
+.big{font-size:2.5rem;font-weight:800;line-height:1.1}
+.u{font-size:1rem;color:var(--mut);font-weight:500;margin-left:4px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:22px}
+.panel{background:var(--bg2);border-radius:18px 18px 18px 4px;padding:26px;max-width:720px}
+.panel h3{margin:0 0 8px;font-size:1.4rem}
+.panel p{margin:0}
+.tl{list-style:none;margin:0;padding:0 0 0 22px;border-left:2px solid var(--bd)}
+.tl li{position:relative;padding:0 0 26px 8px;max-width:62ch}
+.tl li::before{content:"";position:absolute;left:-30px;top:9px;width:12px;height:12px;border-radius:50%;background:var(--ac)}
+.tl b{font-family:"Bricolage Grotesque",sans-serif;font-size:1.3rem;display:block}
+#quiz{background:var(--bg2);border-radius:4px 18px 18px 18px;padding:26px;max-width:640px}
+#quiz .q{font-family:"Bricolage Grotesque",sans-serif;font-size:1.25rem;font-weight:500;margin:0 0 14px}
+#opts{display:grid;gap:8px}
+#opts button{text-align:left;border-radius:12px}
+#opts button.ok{background:var(--ac);color:var(--bg);border-color:var(--ac)}
+#opts button.no{border-color:#c0504d;text-decoration:line-through}
+#fb{min-height:1.6em;margin:12px 0 0}
+footer{padding:30px 0 48px;color:var(--mut);font-size:.95rem}
+.mascot-row{display:flex;flex-wrap:wrap;gap:20px;align-items:center}
+#mascot{border:0;padding:0;width:170px;background:none;border-radius:24px}
+#mascot svg{width:100%;display:block;animation:float 3.5s ease-in-out infinite}
+#mascot.hop svg{animation:hop .5s ease-out}
+.pupil{transform-box:fill-box;transform-origin:center;animation:blink 4.5s infinite}
+.bubble{background:var(--bg2);padding:16px 20px;border-radius:18px 18px 18px 4px;max-width:380px;margin:0;min-height:3.3em}
+@keyframes float{50%{transform:translateY(-6px)}}
+@keyframes hop{30%{transform:translateY(-22px) scale(1.04,.96)}60%{transform:translateY(0) scale(.96,1.04)}}
+@keyframes blink{0%,94%,100%{transform:scaleY(1)}97%{transform:scaleY(.1)}}
+.qm{width:64px;float:right;margin:0 0 8px 12px}
+.qm svg{width:100%;display:block}
+.qm.hop svg{animation:hop .5s ease-out}
+@media (prefers-reduced-motion:reduce){.orb,#mascot svg,#mascot.hop svg,.qm.hop svg,.pupil{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="w">
+  <div class="top"><button id="theme" type="button">Cambiar tema</button></div>
+
+  <header class="hero">
+    <div>
+      <span class="tag">Pr · 59</span>
+      <h1>Praseodimio</h1>
+      <p class="lede">El gemelo verde de las tierras raras: un metal plateado y blando que se cubre de verde en contacto con el aire y que hoy mueve imanes, tiñe vidrios y amplifica luz.</p>
+      <p style="color:var(--mut);margin:0">Toca una capa del átomo para explorarla.</p>
+    </div>
+    <div>
+      <svg id="atom" viewBox="0 0 300 300" role="img" aria-label="Modelo del átomo de praseodimio con seis capas de electrones"></svg>
+    </div>
+  </header>
+
+  <div id="shells" role="group" aria-label="Capas electrónicas"></div>
+  <p id="info" aria-live="polite"></p>
+
+  <section id="mascota">
+    <h2>Conoce a Prasi</h2>
+    <p class="sub">La mascota del praseodimio. Tócala para que te cuente algo.</p>
+    <div class="mascot-row">
+      <button id="mascot" type="button" aria-label="Prasi, la mascota del praseodimio. Tócala para escuchar un dato">
+        <svg viewBox="0 0 160 180" aria-hidden="true">
+          <ellipse cx="60" cy="168" rx="16" ry="7" fill="#3f9a5e"/>
+          <ellipse cx="100" cy="168" rx="16" ry="7" fill="#3f9a5e"/>
+          <ellipse cx="80" cy="108" rx="54" ry="58" fill="#5cb97a" stroke="#1e7a4f" stroke-width="3"/>
+          <path d="M58 54V40a22 22 0 0 1 44 0v14" fill="none" stroke="#c0504d" stroke-width="10"/>
+          <rect x="53" y="50" width="10" height="9" fill="#d8d8d8"/>
+          <rect x="97" y="50" width="10" height="9" fill="#d8d8d8"/>
+          <path d="M30 90h100" stroke="#12281d" stroke-width="5"/>
+          <circle cx="60" cy="90" r="19" fill="#e8d44d" stroke="#12281d" stroke-width="3"/>
+          <circle cx="100" cy="90" r="19" fill="#e8d44d" stroke="#12281d" stroke-width="3"/>
+          <circle cx="60" cy="90" r="10" fill="#fff"/>
+          <circle cx="100" cy="90" r="10" fill="#fff"/>
+          <circle class="pupil" cx="62" cy="91" r="5" fill="#12281d"/>
+          <circle class="pupil" cx="102" cy="91" r="5" fill="#12281d"/>
+          <path d="M66 124q14 14 28 0" fill="none" stroke="#12281d" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="80" cy="148" r="13" fill="#f6faf2" stroke="#1e7a4f" stroke-width="2"/>
+          <text x="80" y="153" text-anchor="middle" font-size="14" font-weight="800" fill="#12281d" font-family="Arial,sans-serif">Pr</text>
+        </svg>
+      </button>
+      <p id="bubble" class="bubble" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <section id="datos">
+    <h2>Datos clave</h2>
+    <div class="row">
+      <span>Temperaturas en:</span>
+      <button id="unit" type="button" aria-pressed="false">Kelvin</button>
+    </div>
+    <dl class="facts">
+      <div><dt>Número atómico</dt><dd><span class="big num" data-to="59">59</span></dd></div>
+      <div><dt>Masa atómica</dt><dd><span class="big num" data-to="140.91" data-d="2">140,91</span><span class="u">u</span></dd></div>
+      <div><dt>Punto de fusión</dt><dd><span class="big t" data-c="931">931</span><span class="u un">°C</span></dd></div>
+      <div><dt>Punto de ebullición</dt><dd><span class="big t" data-c="3520">3520</span><span class="u un">°C</span></dd></div>
+      <div><dt>Densidad</dt><dd><span class="big num" data-to="6.77" data-d="2">6,77</span><span class="u">g/cm³</span></dd></div>
+      <div><dt>Abundancia en la corteza</dt><dd><span class="big num" data-to="9.2" data-d="1">9,2</span><span class="u">ppm</span></dd></div>
+    </dl>
+    <p class="sub" style="margin-top:26px">Pertenece a los lantánidos. Su único isótopo estable es el Pr-141 y su estado de oxidación más común es +3.</p>
+  </section>
+
+  <section id="usos">
+    <h2>Para qué sirve</h2>
+    <p class="sub">Elige un tema.</p>
+    <div class="row" id="tabs" role="tablist"></div>
+    <div class="panel" id="panel" role="tabpanel" aria-live="polite"></div>
+  </section>
+
+  <section id="historia">
+    <h2>Cómo se descubrió</h2>
+    <p class="sub">El nombre viene del griego: prasios (verde) y didymos (gemelo).</p>
+    <ul class="tl">
+      <li><b>1839</b>Carl Mosander extrae lantano de un mineral de cerio.</li>
+      <li><b>1841</b>Mosander separa del lantano una mezcla que llama didimio, «el gemelo».</li>
+      <li><b>1885</b>En Viena, Carl Auer von Welsbach demuestra que el didimio eran dos elementos: praseodimio, el gemelo verde, y neodimio, el gemelo nuevo.</li>
+      <li><b>Hoy</b>El praseodimio se vende casi siempre junto al neodimio (NdPr), una de las tierras raras más buscadas para imanes.</li>
+    </ul>
+  </section>
+
+  <section id="quiz-s">
+    <h2>Ponte a prueba</h2>
+    <p class="sub">Tres preguntas sobre lo que acabas de ver.</p>
+    <div id="quiz">
+      <div id="qm" class="qm" aria-hidden="true"></div>
+      <p class="q" id="qt"></p>
+      <div id="opts"></div>
+      <p id="fb" aria-live="polite"></p>
+      <button id="next" type="button" hidden>Siguiente</button>
+    </div>
+  </section>
+
+  <footer>Valores de referencia redondeados. Pensada para aprender; revisa una fuente científica antes de citar datos.</footer>
+</div>
+
+<script>
+const $=s=>document.querySelector(s);
+const fmt=(n,d)=>n.toLocaleString('es',{minimumFractionDigits:d,maximumFractionDigits:d});
+
+/* Tema */
+$('#theme').onclick=()=>{
+  const r=document.documentElement;
+  const cur=r.dataset.theme||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
+  r.dataset.theme=cur==='dark'?'light':'dark';
+};
+
+/* Átomo interactivo */
+const SH=[["K",2,"1s²","La capa más cercana al núcleo."],
+["L",8,"2s² 2p⁶","Capa completa: ocho electrones."],
+["M",18,"3s² 3p⁶ 3d¹⁰","Capa completa con 18 electrones."],
+["N",21,"4s² 4p⁶ 4d¹⁰ 4f³","Aquí están los tres electrones 4f, responsables de su magnetismo y de su color verde."],
+["O",8,"5s² 5p⁶","Protege a los electrones 4f del exterior; por eso las tierras raras se parecen tanto entre sí."],
+["P",2,"6s²","Son los más fáciles de perder. Al ceder tres electrones (los 6s² y uno 4f) nace el ion Pr³⁺, de color verde."]];
+const R=[26,50,74,98,120,140];
+let s='<circle cx="150" cy="150" r="13" fill="var(--hl)"/><text x="150" y="154" text-anchor="middle" font-size="11" font-weight="800" fill="#12281d">Pr</text>';
+SH.forEach(([n,e],i)=>{
+  let d='';
+  for(let k=0;k<e;k++){const a=k/e*6.2832;d+=`<circle class="el" cx="${(150+R[i]*Math.cos(a)).toFixed(1)}" cy="${(150+R[i]*Math.sin(a)).toFixed(1)}" r="3.2"/>`}
+  s+=`<g class="sh" data-i="${i}"><circle class="ring" cx="150" cy="150" r="${R[i]}"/><g class="orb" style="animation-duration:${10+i*6}s;animation-direction:${i%2?'reverse':'normal'}">${d}</g><circle class="hit" cx="150" cy="150" r="${R[i]}"/></g>`;
+});
+$('#atom').innerHTML=s;
+SH.forEach(([n,e],i)=>{
+  const b=document.createElement('button');b.type='button';b.textContent=`${n} · ${e}`;b.dataset.i=i;
+  b.setAttribute('aria-pressed','false');b.onclick=()=>pick(i);$('#shells').appendChild(b);
+});
+document.querySelectorAll('.sh').forEach(g=>g.onclick=()=>pick(+g.dataset.i));
+function pick(i){
+  document.querySelectorAll('.sh').forEach(g=>g.classList.toggle('on',+g.dataset.i===i));
+  document.querySelectorAll('#shells button').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.i===i));
+  const [n,e,c,t]=SH[i];
+  $('#info').innerHTML=`<b>Capa ${n}:</b> ${e} electrones (${c}). ${t}`;
+}
+pick(3);
+
+/* Números animados */
+const still=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;
+  io.unobserve(e.target);
+  if(still)return;
+  const el=e.target,to=+el.dataset.to,d=+(el.dataset.d||0);let t0;
+  const f=t=>{t0=t0||t;const p=Math.min((t-t0)/1100,1);el.textContent=fmt(to*(1-Math.pow(1-p,3)),d);if(p<1)requestAnimationFrame(f)};
+  requestAnimationFrame(f);
+}),{threshold:.6});
+document.querySelectorAll('.num').forEach(n=>io.observe(n));
+
+/* Unidades */
+let K=false;
+$('#unit').onclick=function(){
+  K=!K;this.setAttribute('aria-pressed',K);this.textContent=K?'Celsius':'Kelvin';
+  document.querySelectorAll('.t').forEach(t=>t.textContent=fmt(Math.round(+t.dataset.c+(K?273.15:0)),0).replace(/\./g,''));
+  document.querySelectorAll('.un').forEach(u=>u.textContent=K?'K':'°C');
+};
+
+/* Usos */
+const US=[
+["Imanes","Imanes permanentes","Combinado con el neodimio, el praseodimio forma parte de imanes de neodimio-hierro-boro, que además mejora su resistencia a la corrosión. Esos imanes están en motores de vehículos eléctricos, turbinas eólicas y discos duros."],
+["Vidrio y color","Vidrio y cerámica de color","Sus óxidos tiñen de verde y de amarillo. El pigmento amarillo de praseodimio y circón es común en esmaltes y azulejos. Mezclado con neodimio da el vidrio de didimio, que filtra la luz amarilla del sodio y protege los ojos de sopladores de vidrio y soldadores."],
+["Aleaciones","Metales más fuertes","Pequeñas cantidades de praseodimio refuerzan las aleaciones de magnesio, ligeras y resistentes, usadas en piezas de motores de avión."],
+["Óptica","Fibras y láseres","Las fibras ópticas dopadas con praseodimio amplifican señales de telecomunicaciones, y los cristales con praseodimio se usan en láseres de luz visible."],
+["Origen","De dónde se obtiene","Se extrae de minerales como la monacita y la bastnasita, siempre junto a otras tierras raras. Separarlo del neodimio es difícil porque son químicamente casi idénticos, y por eso suelen venderse juntos."]];
+US.forEach(([k],i)=>{
+  const b=document.createElement('button');b.type='button';b.textContent=k;b.setAttribute('role','tab');
+  b.onclick=()=>{
+    document.querySelectorAll('#tabs button').forEach(x=>x.setAttribute('aria-selected',x===b));
+    $('#panel').innerHTML=`<h3>${US[i][1]}</h3><p>${US[i][2]}</p>`;
+  };
+  $('#tabs').appendChild(b);
+});
+$('#tabs button').click();
+
+/* Mascota */
+const FD=["¡Hola! Soy Prasi, la mascota del praseodimio.","Mi nombre viene de prasios, que en griego significa verde.","Mis gafas son de vidrio de didimio: filtran la luz amarilla del sodio.","Mi imán es de neodimio y praseodimio. Trabajamos mejor juntos.","Soy el elemento 59 y solo tengo un isótopo estable: el Pr-141.","Si me dejan al aire, me cubro de una capa verde de óxido.","Mi gemelo, el neodimio, es casi idéntico a mí. Por eso cuesta tanto separarnos.","En 1885 Carl Auer von Welsbach nos separó a mi gemelo y a mí."];
+let fi=1;const mb=$('#mascot');
+$('#bubble').textContent=FD[0];
+mb.onclick=()=>{
+  $('#bubble').textContent=FD[fi%FD.length];fi++;
+  mb.classList.remove('hop');void mb.offsetWidth;mb.classList.add('hop');
+  setTimeout(()=>mb.classList.remove('hop'),500);
+};
+
+const qm=$('#qm');qm.appendChild($('#mascot svg').cloneNode(true));
+const hopQ=()=>{qm.classList.remove('hop');void qm.offsetWidth;qm.classList.add('hop');setTimeout(()=>qm.classList.remove('hop'),500)};
+
+/* Quiz */
+const Q=[
+["¿Qué significa «praseodimio» en griego?",["Gemelo verde","Piedra brillante","Metal del cielo"],0,"El nombre combina prasios (verde) y didymos (gemelo)."],
+["¿Cuál es su número atómico?",["57","59","60"],1,"Tiene 59 protones, y por eso 59 electrones en el átomo neutro."],
+["¿Quién separó el praseodimio del neodimio en 1885?",["Marie Curie","Dmitri Mendeléyev","Carl Auer von Welsbach"],2,"Welsbach demostró que el didimio eran dos elementos distintos."]];
+let qi=0,pts=0;
+function ask(){
+  const [t,o]=Q[qi];
+  $('#qt').textContent=`${qi+1} de ${Q.length}. ${t}`;
+  $('#fb').textContent='';$('#next').hidden=true;
+  const box=$('#opts');box.innerHTML='';
+  o.forEach((txt,i)=>{
+    const b=document.createElement('button');b.type='button';b.textContent=txt;
+    b.onclick=()=>{
+      const ok=i===Q[qi][2];if(ok){pts++;hopQ()}
+      box.querySelectorAll('button').forEach((x,j)=>{x.disabled=true;if(j===Q[qi][2])x.classList.add('ok');else if(x===b)x.classList.add('no')});
+      $('#fb').textContent=(ok?'Prasi: ¡Correcto! ':'Prasi: no exactamente. ')+Q[qi][3];
+      $('#next').textContent=qi===Q.length-1?'Ver resultado':'Siguiente';$('#next').hidden=false;
+    };
+    box.appendChild(b);
+  });
+}
+$('#next').onclick=()=>{
+  if(qi<Q.length-1){qi++;ask();return}
+  $('#qt').textContent=`Acertaste ${pts} de ${Q.length}.`;
+  $('#opts').innerHTML='';$('#fb').textContent=pts===Q.length?'Ya eres experto en praseodimio.':'Repasa las secciones y vuelve a intentarlo.';
+  $('#next').textContent='Jugar de nuevo';$('#next').onclick=()=>location.reload();
+};
+ask();
+</script>
+</body>
+</html>
